@@ -26,6 +26,10 @@ const Welcome = () => {
 
     return (
         <div style={styles.container}> 
+            <header
+                style={styles.header}>
+                Team Race Timer App
+            </header>
             <input
                 style={styles.input}
                 placeholder="Add new runner!"
@@ -38,7 +42,7 @@ const Welcome = () => {
                 <span style={styles.buttonText}>Add</span> 
             </button>
             <button
-                style={styles.button}
+                style={styles.startButton}
                 onClick={handleStopwatchRedirect}>
                 <span style={styles.buttonText}>Start Session</span> 
             </button>
@@ -52,9 +56,9 @@ const Welcome = () => {
                 ))}
             </div>
             <button
-                style={styles.button}
+                style={styles.clearButton}
                 onClick={clearRunners}>
-                <span>Clear Runner List</span>
+                <span style={styles.buttonText}>Clear Runner List</span>
             </button>
         </div>
     );
@@ -68,10 +72,33 @@ const styles = {
         alignItems: 'center', 
         padding: '20px',
     }, 
+    header: {
+        fontSize: '30px',
+        color: 'green',
+        marginTop: '60px',
+    },
     button: { 
         padding: '10px 20px', 
         borderRadius: '5px', 
         backgroundColor: '#2ecc71', 
+        marginRight: '10px', 
+        marginTop: '10px',
+        border: 'none',
+        cursor: 'pointer',
+    },
+    startButton: { 
+        padding: '10px 20px', 
+        borderRadius: '5px', 
+        backgroundColor: '#2170c4', 
+        marginRight: '10px', 
+        marginTop: '10px',
+        border: 'none',
+        cursor: 'pointer',
+    },
+    clearButton: { 
+        padding: '10px 20px', 
+        borderRadius: '5px', 
+        backgroundColor: 'red', 
         marginRight: '10px', 
         marginTop: '10px',
         border: 'none',

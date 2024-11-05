@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Stopwatch from './Stopwatch';
 import Runner from './Runner';
 
@@ -9,6 +10,7 @@ const StopwatchScreen = () => {
     const { runners } = location.state || {};
     const [currentTime, setCurrentTime] = useState({ minutes: 0, seconds: 0 });
     const RUNNER_HEIGHT = 10;
+    const navigate = useNavigate();
 
 
     const deleteRunner = (runnerName) => {
@@ -18,6 +20,10 @@ const StopwatchScreen = () => {
 
     const updateTime = (minutes, seconds) => {
         setCurrentTime({ minutes, seconds });
+    };
+
+    const handleBackRedirect = () => {
+        navigate('/');
     };
 
     return (
@@ -32,6 +38,11 @@ const StopwatchScreen = () => {
                     </div>
                 ))}
             </div>
+            <button
+                style={styles.backButton}
+                onClick={handleBackRedirect}>
+                <span>End Session</span>
+            </button>
         </div>
     );
 };
@@ -67,6 +78,15 @@ const styles = {
         border: 'none',
         borderRadius: '5px',
         cursor: 'pointer',
+    },
+    backButton: {
+        backgroundColor: 'red',
+        color: 'white',
+        padding: '5px 10px',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        marginTop: '5px'
     },
 };
 
